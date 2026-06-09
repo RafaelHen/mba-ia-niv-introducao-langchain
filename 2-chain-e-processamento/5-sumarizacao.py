@@ -1,6 +1,5 @@
 from dotenv import load_dotenv
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-from langchain_core.prompts import PromptTemplate
 from langchain_openai import ChatOpenAI
 from langchain_classic.chains.summarize import load_summarize_chain
 load_dotenv();
@@ -43,3 +42,7 @@ chain_summarize = load_summarize_chain(llm, chain_type="stuff", verbose=False);
 
 result = chain_summarize.invoke({"input_documents": parts});
 print(result);
+
+
+# result apresenta dois objetos 'Document' que é o documento que foi processado e 'output_text' que é o resultado da sumarização.
+# O resultado é uma string que contém a versão resumida do texto original, mantendo os pontos principais e a essência do conteúdo.
